@@ -1,7 +1,7 @@
 package com.dentalSoft.DentalSoft.dao.entity;
 
-import com.dentalSoft.DentalSoft.dao.entity.Enums.*;
-import jakarta.persistence.Entity;
+import com.dentalSoft.DentalSoft.dao.entity.enums.*;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,11 +12,19 @@ import java.util.Map;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Dentiste extends Utilisateur{
-    LocalDate dateRetourConge;
-    Double salaireDeBase;
-    Specialite specialite;
+    private LocalDate dateRetourConge;
+    private Double salaireDeBase;
+    @Enumerated(EnumType.STRING)
+    private Specialite specialite;
+    @ElementCollection
+    @CollectionTable(name = "dentiste_disponibilites", joinColumns = @JoinColumn(name = "dentiste_id"))
+    @MapKeyColumn(name = "day_of_week")
+    @MapKeyEnumerated(EnumType.STRING)
     Map<DayOfTheWeek, Disponibilite> disponibilite;
+    @Enumerated(EnumType.STRING)
     Assurance assuarance;
+    @Enumerated(EnumType.STRING)
     StatusEmploye statusActuel;
 }

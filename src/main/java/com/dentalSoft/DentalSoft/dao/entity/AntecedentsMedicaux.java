@@ -1,7 +1,7 @@
 package com.dentalSoft.DentalSoft.dao.entity;
 
-import com.dentalSoft.DentalSoft.dao.entity.Enums.CategorieAntecedentMedicale;
-import jakarta.persistence.Entity;
+import com.dentalSoft.DentalSoft.dao.entity.enums.CategorieAntecedentMedicale;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,9 +13,15 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 public class AntecedentsMedicaux {
-    Long idAntecedentsMedicaux;
-    List<Patient> patients;
-    String libelle;
-    CategorieAntecedentMedicale categorie;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long idAntecedentsMedicaux;
+    @Column(name = "libelle")
+    private String libelle;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "categorie")
+    private CategorieAntecedentMedicale categorie;
+
+
 
 }

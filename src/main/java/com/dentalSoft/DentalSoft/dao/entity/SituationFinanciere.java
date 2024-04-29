@@ -1,8 +1,7 @@
 package com.dentalSoft.DentalSoft.dao.entity;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,9 +16,11 @@ import java.util.List;
 public class SituationFinanciere {
     @Id
     Long idSituationFinanciere;
+    @OneToOne(mappedBy = "situationFinanciere")
     DossierMedicale dossierMedicale;
     LocalDate dateCreation;
     Double montantGlobaleRestant;
     Double montantGlobalePaye;
+    @OneToMany(mappedBy = "situationFinanciere", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     List<Facture> facture;
 }

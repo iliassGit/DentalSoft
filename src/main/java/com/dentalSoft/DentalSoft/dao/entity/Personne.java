@@ -1,7 +1,6 @@
 package com.dentalSoft.DentalSoft.dao.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,8 +9,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+
 public class Personne {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     int id;
     String nom;
     String prenom;

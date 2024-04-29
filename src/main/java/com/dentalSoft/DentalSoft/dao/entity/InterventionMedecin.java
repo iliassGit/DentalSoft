@@ -1,6 +1,6 @@
 package com.dentalSoft.DentalSoft.dao.entity;
 
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,11 +10,16 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 public class InterventionMedecin {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    Long idIntervention;
     String noteMedecin;
     Double prixPatient;
     Long dent;
-    Long idIntervention;
+    @ManyToOne
     Acte acte;
+    @ManyToOne
+    @JoinColumn(name = "consultation_id")
     Consultation consultation;
 
 }

@@ -1,7 +1,7 @@
 package com.dentalSoft.DentalSoft.dao.entity;
 
 
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,7 +13,17 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 public class Utilisateur extends Personne{
-    String password;
-    String username;
-    List<Role> roles;
+    @Column(nullable = false)
+    private String password;
+
+    @Column(nullable = false, unique = true)
+    private String username;
+
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "utilisateur_roles",
+            joinColumns = @JoinColumn(name = "utilisateur_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "idRole")
+    )
+    private List<Role> roles;
 }

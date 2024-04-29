@@ -1,8 +1,7 @@
 package com.dentalSoft.DentalSoft.dao.entity;
 
-import com.dentalSoft.DentalSoft.dao.entity.Enums.CategorieActe;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import com.dentalSoft.DentalSoft.dao.entity.enums.CategorieActe;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,11 +13,14 @@ import java.util.List;
 @Entity
 public class Acte {
     @Id
-    Long idActe;
-    List<InterventionMedecin> interventions;
-    Double prixDeBase;
-    CategorieActe categorie;
-
-    String libelle;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long idActe;
+    @OneToMany(mappedBy = "acte", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<InterventionMedecin> interventions;
+    @Column(nullable = false)
+    private Double prixDeBase;
+    @Enumerated(EnumType.STRING)
+    private CategorieActe categorie;
+    private String libelle;
 
 }
