@@ -20,7 +20,7 @@ public class DossierMedicale {
     List<Consultation> consultations;
     @Column(name = "date_creation")
     LocalDate dateCreation;
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "patient_id")
     Patient patient;
     @ManyToOne

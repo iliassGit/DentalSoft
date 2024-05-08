@@ -16,7 +16,16 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Patient extends Personne{
+public class Patient{
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    int id;
+    String nom;
+    String prenom;
+    String Telephone;
+    String adresse;
+    String email;
+    String cin;
     LocalDate dateNaissance;
     @Enumerated(EnumType.STRING)
     Mutuelle mutuelle;
