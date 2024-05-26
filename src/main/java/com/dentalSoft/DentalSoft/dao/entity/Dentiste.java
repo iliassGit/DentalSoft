@@ -14,6 +14,7 @@ import java.util.Map;
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Dentiste extends Utilisateur{
+
     private LocalDate dateRetourConge;
     private Double salaireDeBase;
     @Enumerated(EnumType.STRING)

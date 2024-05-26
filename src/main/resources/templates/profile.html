@@ -26,41 +26,43 @@
     <div class="profile-container">
         <div class="profile-header">
             <img src="profile/images/dentist-icon.jpg" alt="Profile Picture" class="profile-picture">
-            <div class="profile-info">
-                <h1>Dr. Hamid Chinwi</h1>
-                <p>Chirurgien Dentiste</p>
+            <div class="profile-info"><br>
+                <h1>DR. <span th:text="${dentiste.nom}"></span>  <span th:text="${dentiste.prenom}"></span></h1>
+                <p><span th:text="${dentiste.specialite}"></span></p>
             </div>
             <button class="modifier-button" id="modifierButton">Modifier</button></li>
-            <button class="modifier-button" id="enregistrerButton" style="display:none;">Enregistrer</button>       
         </div>
+        <form action="/updateDentiste" method="POST">
         <div class="profile-details">
             <h2>Addresse</h2>
-            <input class="profile-input" id="adresseInput" type="text" value="26, Souissi Rabat" readonly  style="color: #7B68EE;"><br><br>
+            <input class="profile-input" id="adresseInput" type="text" th:value="${dentiste.adresse}" readonly  style="color: #7B68EE;" name="adresse"><br><br>
             <h2>N° Téléphone</h2>
-            <p class="inline-p">Pro : </p><input class="profile-input" id="teleProInput" type="text" value="+1 234-567-890" readonly  style="color: #7B68EE;"><br><br>
-            <p class="inline-p">Perso : </p><input class="profile-input" id="telePersoInput" type="text" value="+1 234-567-890" readonly  style="color: #7B68EE;"><br><br>
+            <p class="inline-p">Pro : </p><input class="profile-input" id="teleProInput" type="text" th:value="${dentiste.telephone}" readonly  style="color: #7B68EE;" name="telephone"><br><br>
+            <p class="inline-p">Perso : </p><input class="profile-input" id="telePersoInput" type="text" value="---------" readonly  style="color: #7B68EE;"><br><br>
             <h2>E-mail</h2>
-            <p class="inline-p" >Pro : </p><input class="profile-input" id="emailProInput" type="text" value="Dentiste.Chinwi@gmail.com" readonly  style="color: #7B68EE;"><br><br>
-            <p class="inline-p">Perso : </p><input class="profile-input" id="emailPersoInput" type="text" value="Hamid.Chinwi@gmail.com" readonly  style="color: #7B68EE;"><br><br>
+            <p class="inline-p" >Pro : </p><input class="profile-input" id="emailProInput" type="text" th:value="${dentiste.email}" readonly  style="color: #7B68EE;" name="email"><br><br>
+            <p class="inline-p">Perso : </p><input class="profile-input" id="emailPersoInput" type="text" value="---------" readonly  style="color: #7B68EE;"><br><br>
+            <button class="modifier-button" type="submit" id="enregistrerButton" style="display:none;">Enregistrer</button>
         </div>
+        </form>
         <div class="profile-lists">
             <ul>
                 <h3>Diplome</h3>
-                <li>List Item 1</li>
-                <li>List Item 2</li>
-                <li>List Item 3</li>
+                <li>--------</li>
+                <li>--------</li>
+                <li>--------</li>
             </ul>
             <ul>
                 <h3>Certificats d'honneurs</h3>
-                <li>List Item 4</li>
-                <li>List Item 5</li>
-                <li>List Item 6</li>
+                <li>--------</li>
+                <li>--------</li>
+                <li>--------</li>
             </ul>
             <ul>
                 <h3>Expériences Professionnelle</h3>
-                <li>List Item 7</li>
-                <li>List Item 8</li>
-                <li>List Item 9</li>
+                <li>--------</li>
+                <li>--------</li>
+                <li>--------</li>
             </ul>
         </div>
     </div>

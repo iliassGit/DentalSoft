@@ -4,4 +4,5 @@ import com.dentalSoft.DentalSoft.dao.entity.Dentiste;
 import org.springframework.data.repository.CrudRepository;
 
 public interface DentisteRepository extends CrudRepository<Dentiste, Long> {
+
 }

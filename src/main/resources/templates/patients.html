@@ -33,75 +33,36 @@
         <button class="search-button">Search</button>
     </div>
     <div class="liste-patients">
-        
+
         <table>
             <thead>
-                <tr>
-                    <th>Nom Complet</th>
-                    <th>Age</th>
-                    <th>Sexe</th>
-                    <th>E-mail</th>
-                    <th>Adresse</th>
-                    <th>Date d'ajout</th>
-                    <th>Action</th>
-                </tr>
+            <tr>
+                <th>Nom Complet</th>
+                <th>Age</th>
+                <th>Sexe</th>
+                <th>E-mail</th>
+                <th>Adresse</th>
+                <th>CIN</th>
+                <th>Action</th>
+            </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>CES-9000</td>
-                <td>10/03/2024</td>
-                <td>Iliass Boulaich</td>
-                <td>200938</td>
-                <td>2000 DH</td>
-                <td>10/03/2024</td>
+            <tr th:each="patient : ${patients}">
+                <td th:text="${patient.nom}"> <span th:text="${patient.prenom }"></span></td>
+                <td th:text="${patient.age}"></td>
+                <td th:text="${patient.sexe}"></td>
+                <td th:text="${patient.email}"></td>
+                <td th:text="${patient.adresse}"></td>
+                <td th:text="${patient.cin}"></td>
                 <td>
-                    <a href="patient_details.html"><i class="fa-regular fa-folder-open"></i></a>
-                    <a><i class="fa-regular fa-pen-to-square"></i></a>
-                    <a><i class="fas fa-trash-alt"></i></a>
-                </td>
-            </tr>
-                <tr>
-                <td>CES-9000</td>
-                <td>14/03/2024</td>
-                <td>Ayoub Sabbar</td>
-                <td>200939</td>
-                <td>1000 DH</td>
-                <td>10/03/2024</td>
-                <td>
-                    <a href="patient_details.html"><i class="fa-regular fa-folder-open"></i></a>
-                    <a><i class="fa-regular fa-pen-to-square"></i></a>
-                    <a><i class="fas fa-trash-alt"></i></a>
-                </td>
-            </tr>
-                <tr>
-                <td>CES-9000</td>
-                <td>20/03/2024</td>
-                <td>Ahmed Lhiba</td>
-                <td>378938</td>
-                <td>200 DH</td>
-                <td>10/03/2024</td>
-                <td>
-                    <a href="patient_details.html"><i class="fa-regular fa-folder-open"></i></a>
-                    <a><i class="fa-regular fa-pen-to-square"></i></a>
-                    <a><i class="fas fa-trash-alt"></i></a>
-                </td>
-            </tr>
-                <tr>
-                <td>CES-9000</td>
-                <td>25/03/2024</td>
-                <td>Khalid Mimouni</td>
-                <td>200935</td>
-                <td>800 DH</td>
-                <td>10/03/2024</td>
-                <td>
-                    <a href="patient_details.html"><i class="fa-regular fa-folder-open"></i></a>
+                    <a th:href="@{/patient_details}"><i class="fa-regular fa-folder-open"></i></a>
                     <a><i class="fa-regular fa-pen-to-square"></i></a>
                     <a><i class="fas fa-trash-alt"></i></a>
                 </td>
             </tr>
             </tbody>
         </table>
-        
+
     </div>
     
     <h2 class="patients-total">Formulaire patient :</h2>

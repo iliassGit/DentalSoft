@@ -12,7 +12,16 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Utilisateur extends Personne{
+public class Utilisateur{
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    int id;
+    String nom;
+    String prenom;
+    String Telephone;
+    String adresse;
+    String email;
+    String cin;
     @Column(nullable = false)
     private String password;
 

@@ -23,7 +23,9 @@ public class Patient{
     String nom;
     String prenom;
     String Telephone;
+    int age;
     String adresse;
+    String sexe;
     String email;
     String cin;
     LocalDate dateNaissance;
