@@ -1,0 +1,255 @@
+table {
+    border-collapse: collapse; /* Ensures borders are not doubled */
+    background: white;
+    border-radius: 6px;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    margin-left: 23%; /* Adjust as needed */
+    border: 1px solid #333; /* Border for the entire table */
+    
+}
+table * {
+    position: relative;
+}
+table td, table th {
+    padding-left: 8px;
+    border: 1px solid #333; 
+}
+table thead tr {
+    height: 60px;
+    background-color: #9194e8;
+    font-size: 16px;
+}
+table tbody tr {
+    height: 48px;
+    border-bottom: 1px solid #E3F1D5;
+}
+table tbody tr:last-child {
+    border: 0;
+}
+table td, table th {
+    text-align: center;
+}
+table td.l, table th.l {
+    text-align: right;
+}
+table td.c, table th.c {
+    text-align: center;
+}
+table td.r, table th.r {
+    text-align: center;
+}
+
+@media screen and (max-width: 35.5em) {
+    table {
+        display: block;
+    }
+    table > *, table tr, table td, table th {
+        display: block;
+    }
+    table thead {
+        display: none;
+    }
+    table tbody tr {
+        height: auto;
+        padding: 8px 0;
+    }
+    table tbody tr td {
+        padding-left: 45%;
+        margin-bottom: 12px;
+    }
+    table tbody tr td:last-child {
+        margin-bottom: 0;
+    }
+    table tbody tr td:before {
+        position: absolute;
+        font-weight: 700;
+        width: 40%;
+        left: 10px;
+        top: 0;
+    }
+    table tbody tr td:nth-child(1):before {
+        content: "Code";
+    }
+    table tbody tr td:nth-child(2):before {
+        content: "Stock";
+    }
+    table tbody tr td:nth-child(3):before {
+        content: "Cap";
+    }
+    table tbody tr td:nth-child(4):before {
+        content: "Inch";
+    }
+    table tbody tr td:nth-child(5):before {
+        content: "Box Type";
+    }
+}
+
+
+
+
+.table-container {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.search-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+    margin-top: 5%;
+    margin-right:14%;
+}
+
+.search-bar {
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+.search-button {
+    padding: 10px 15px;
+    background-color: #9194e8;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.search-button:hover {
+    background-color: #91a4e8;
+}
+.listeP-title{
+    margin-right: 37.3%;
+}
+.patients-total{
+    margin-left:22.9%;
+}
+/* 
+.circle {
+    width: 20px;
+    height: 20px;
+    background-color: black;
+    border-radius: 50%;
+    margin-right: 10px; 
+    display: inline-block; 
+    text-decoration: none; 
+  }
+  
+  .circle:hover {
+    background-color: red; 
+  }
+   */
+
+
+
+
+.form-container {
+    max-width: 1100px;
+    margin-left: 23%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-column {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input,
+select {
+    width: calc(100% - 12px);
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+
+.button-container {
+    position: absolute;
+    top: 59%;
+    right: 14.3%;
+}
+
+.button-container button {
+    margin-left: 10px;
+}
+
+
+.enregitrer-button {
+    padding: 10px 15px;
+    background-color: #35c026;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.enregitrer-button:hover{
+    background-color: #6eda62;
+}
+.supprimer-button {
+    padding: 10px 27px;
+    background-color: #ed1d1d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.supprimer-button:hover{
+    background-color: #ed3d3d;
+}
+
+
+.box-div {
+    font-family: Arial, sans-serif;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    /* height: 100vh; */
+    margin-left: 40%;
+    margin-top:1%;
+    /* background-color: #f4f4f4; */
+}
+.box-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 14px; /* Reduced space between each box */
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.number {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #9194e8;
+    border-radius: 5px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}

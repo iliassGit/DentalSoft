@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Multi-Page Sidebar</title>
+<link rel="stylesheet" th:href="@{/sidebar/index.css}">
+<link rel="stylesheet" th:href="@{/patient_detail/css/style.css}">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1 class="header-title">Dental Soft</h1>
+    </header>
+    
+<div class="sidebar">
+    <ul>
+        <li><a th:href="@{/profile}" >Mon Profile</a></li>
+        <li><a th:href="@{/agenda}" >Agenda</a></li>
+        <li><a th:href="@{/patients}" style="background-color: white;color: #7B68EE;text-align: center;">Patients</a></li>
+        <li><a th:href="@{/caisse}">Caisse</a></li>
+        <li><a th:href="@{/personnels}">Personnels</a></li>
+        <li><a th:href="@{/parametres}">Paramètres</a></li>
+    </ul>
+</div>
+<a href="patients.html"><img src="patient_detail/images/previous.png" alt="previous icon" class="previous-icon"></a>
+<div class="patient-container">
+    <div class="profile-container">
+        <img src="patient_detail/images/patient.png" alt="Profile Picture" class="profile-picture">
+        <h5 class="info-patients">Iliass boulaich / 21 ans / Homme</h5>
+        <a class="situation-financiere" href="situation_financiere.html"><img src="patient_detail/images/situation_financiere.png"><p> Situation Financière</p></a>
+        <input type="text" class="search-bar" placeholder="Search...">
+        <button class="search-button">Search</button>
+    </div>
+    <div class="patient-info">
+        <p><i class="fa-solid fa-envelope"></i>  iliass@gmail.com</p>
+        <p><i class="fa-solid fa-phone"></i> +212689109273</p>
+        <p><i class="fa-solid fa-location-dot"></i>  Rue Al Manzah, Kenitra</p>
+        <p><i class="fa-solid fa-calendar-days"></i>  Ajouté le : 06-08-2024</p>
+        <p><i class="fa-regular fa-address-card"></i> AZ99001</p>
+    </div>
+    <div class="dents-image">
+        <img src="patient_detail/images/dents.png" alt="image des dents" class="dents-picture">
+    </div>
+    <div class="notes-medecin">
+        <p><i class="fa-regular fa-clipboard"></i> Notes Medecin : </p>
+        <textarea></textarea>
+    </div>
+    <div class="table-container">
+        <table>
+            <thead>
+            <tr>
+                <th>Acte</th>
+                <th>N° Dent</th>
+                <th>Prix</th>
+                <th>Date</th>
+                <th>Actions</th>
+            </tr>
+            <thead>
+            <tbody>
+            <tr>
+                <td>Soin de carie</td>
+                <td>19</td>
+                <td>500 DH</td>
+                <td>10/03/2024</td>
+                <td>
+                    <a><i class="fa-regular fa-pen-to-square"></i></a>
+                    <a><i class="fas fa-trash-alt"></i></a>
+                </td>
+            </tr>
+                <tr>
+                    <td>Detartrage</td>
+                    <td>Tout</td>
+                    <td>600 DH</td>
+                    <td>13/04/2024</td>
+                <td>
+                    <a><i class="fa-regular fa-pen-to-square"></i></a>
+                    <a><i class="fas fa-trash-alt"></i></a>
+                </td>
+            </tr>
+                <tr>
+                    <td>---------</td>
+                    <td>---------</td>
+                    <td>---------</td>
+                    <td>---------</td>
+                <td>
+                    ---------
+                </td>
+            </tr>
+            <tr>
+                <td>---------</td>
+                <td>---------</td>
+                <td>---------</td>
+                <td>---------</td>
+                <td>
+                    ---------
+                </td>
+            </tr>
+            <tr>
+                <td>---------</td>
+                <td>---------</td>
+                <td>---------</td>
+                <td>---------</td>
+                <td>
+                    ---------
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="form-consultation">
+        <form>
+            <fieldset>
+                <legend>Formulaire Consultation</legend>
+                <div class="form-row"><br>
+                    <div class="form-group">
+                        <label for="acte">Acte</label>
+                        <input type="text" id="acte" name="acte" class="input-form" style="margin-left:80px;"required>
+                    </div>
+                    <div class="form-group">
+                        <label for="prix_base">Prix de Base</label>
+                        <input type="number" id="prix_base" name="prix_base" class="input-form" style="margin-left:20px;" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Date</label>
+                        <input type="date" id="date" name="date" class="input-form" style="margin-left:77px;"required>
+                    </div>
+                    <div class="top-right" id="num_dent-group"><br>
+                        <label for="num_dent">N° Dent</label>
+                        <input type="text" id="num_dent" class="input-form" name="num_dent" required>
+                    </div>
+                    <div class="top-right" id="prix_patient-group"><br>
+                        <label for="prix_patient">Prix Patient</label>
+                        <input type="number" id="prix_patient" class="input-form" name="prix_patient" required>
+                    </div>
+                    <div>
+                        <button type="submit" class="enregitrer-button" id="button1">Enregistrer</button><br><br><br>
+                        <button type="button" class="supprimer-button" id="button2">Effacer</button>
+                
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    
+</div>
+
+<script src="sidebar/index.js"></script>
+
+</body>
+</html>

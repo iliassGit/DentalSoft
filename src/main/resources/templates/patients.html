@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" th:href="@{/sidebar/index.css}">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" th:href="@{patient/css/style.css}">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+    <!--fixed sidebar and title-->
+    <header>
+        <h1 class="header-title">Dental Soft</h1>
+    </header>
+    <div class="sidebar">
+        <ul>
+            <li><a th:href="@{/profile}" >Mon Profile</a></li>
+            <li><a th:href="@{/agenda}" >Agenda</a></li>
+            <li><a th:href="@{/patients}" style="background-color: white;color: #7B68EE;text-align: center;">Patients</a></li>
+            <li><a th:href="@{/caisse}">Caisse</a></li>
+            <li><a th:href="@{/personnels}">Personnels</a></li>
+            <li><a th:href="@{/parametres}">Paramètres</a></li>
+        </ul>
+    </div>
+    <!--end fixed sidebar and title-->
+    <div class="search-container">
+        <h2 class="listeP-title">Liste des patients</h2>
+        <input type="text" class="search-bar" placeholder="Search...">
+        <button class="search-button">Search</button>
+    </div>
+    <div class="liste-patients">
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom Complet</th>
+                    <th>Age</th>
+                    <th>Sexe</th>
+                    <th>E-mail</th>
+                    <th>Adresse</th>
+                    <th>Date d'ajout</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>CES-9000</td>
+                <td>10/03/2024</td>
+                <td>Iliass Boulaich</td>
+                <td>200938</td>
+                <td>2000 DH</td>
+                <td>10/03/2024</td>
+                <td>
+                    <a href="patient_details.html"><i class="fa-regular fa-folder-open"></i></a>
+                    <a><i class="fa-regular fa-pen-to-square"></i></a>
+                    <a><i class="fas fa-trash-alt"></i></a>
+                </td>
+            </tr>
+                <tr>
+                <td>CES-9000</td>
+                <td>14/03/2024</td>
+                <td>Ayoub Sabbar</td>
+                <td>200939</td>
+                <td>1000 DH</td>
+                <td>10/03/2024</td>
+                <td>
+                    <a href="patient_details.html"><i class="fa-regular fa-folder-open"></i></a>
+                    <a><i class="fa-regular fa-pen-to-square"></i></a>
+                    <a><i class="fas fa-trash-alt"></i></a>
+                </td>
+            </tr>
+                <tr>
+                <td>CES-9000</td>
+                <td>20/03/2024</td>
+                <td>Ahmed Lhiba</td>
+                <td>378938</td>
+                <td>200 DH</td>
+                <td>10/03/2024</td>
+                <td>
+                    <a href="patient_details.html"><i class="fa-regular fa-folder-open"></i></a>
+                    <a><i class="fa-regular fa-pen-to-square"></i></a>
+                    <a><i class="fas fa-trash-alt"></i></a>
+                </td>
+            </tr>
+                <tr>
+                <td>CES-9000</td>
+                <td>25/03/2024</td>
+                <td>Khalid Mimouni</td>
+                <td>200935</td>
+                <td>800 DH</td>
+                <td>10/03/2024</td>
+                <td>
+                    <a href="patient_details.html"><i class="fa-regular fa-folder-open"></i></a>
+                    <a><i class="fa-regular fa-pen-to-square"></i></a>
+                    <a><i class="fas fa-trash-alt"></i></a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        
+    </div>
+    
+    <h2 class="patients-total">Formulaire patient :</h2>
+
+    <form action="#" method="post" class="form-container">
+        <div class="button-container">
+            <button type="submit" class="enregitrer-button" id="button1">Enregistrer</button><br><br>
+            <button type="button" class="supprimer-button" id="button2">Effacer</button>
+        </div>
+        <div class="form-column">
+            <div class="form-group">
+                <label for="nomInput">Nom :</label>
+                <input type="text" id="nomInput" name="nom">
+            </div>
+            <div class="form-group">
+                <label for="prenomInput">Prénom :</label>
+                <input type="text" id="prenomInput" name="prenom">
+            </div>
+            <div class="form-group">
+                <label for="adresseInput">Adresse :</label>
+                <input type="text" id="adresseInput" name="adresse">
+            </div>
+            <div class="form-group">
+                <label for="sexeInput">Sexe :</label>
+                <select id="sexeInput" name="sexe">
+                    <option value="homme">Homme</option>
+                    <option value="femme">Femme</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="telephoneInput">N° Téléphone :</label>
+                <input type="tel" id="telephoneInput" name="telephone">
+            </div>
+        </div>
+        <div class="form-column">
+            <div class="form-group">
+                <label for="cinInput">CIN :</label>
+                <input type="text" id="cinInput" name="cin">
+            </div>
+            <div class="form-group">
+                <label for="emailInput">Email :</label>
+                <input type="email" id="emailInput" name="email">
+            </div>
+            <div class="form-group">
+                <label for="passeportInput">N° Passeport :</label>
+                <input type="text" id="passeportInput" name="passeport">
+            </div>
+            <div class="form-group">
+                <label for="dateNaissanceInput">Date de Naissance :</label>
+                <input type="date" id="dateNaissanceInput" name="date_naissance">
+            </div>
+            <div class="form-group">
+                <label for="assuranceInput">Assurance :</label>
+                <select id="assuranceInput" name="sexe">
+                    <option value="CNOPS">CNOPS</option>
+                    <option value="CNSS">CNSS</option>
+                </select>
+            </div>
+            
+        </div>
+        <div class="form-column">
+            <div class="form-group">
+                <label for="maladieCronique" style="color:red">Maladie cronique :</label>
+                <input type="text" id="maladieCronique" name="maladieCronique">
+            </div>
+        </div>
+        <!-- <div class="form-column">
+            <button type="button" id="button1">Button 1</button>
+            <button type="button" id="button2">Button 2</button>
+        </div> -->
+        <!-- <button type="submit" id="submitBtn">Soumettre</button> -->
+    </form>
+
+    <div class="box-div">
+        <div class="box-container">
+            <div class="box">
+                <div class="number">50</div>
+                <div class="title"><br>Nbr de Patients<br>Homme</div>
+            </div>
+            <div class="box">
+                <div class="number">100</div>
+                <div class="title"><br>Nbr de Patients<br>Femme</div>
+            </div>
+            <div class="box">
+                <div class="number">10</div>
+                <div class="title"><br>Nbr de Patients<br>Endant</div>
+            </div>
+            <div class="box">
+                <div class="number">160</div>
+                <div class="title"><br>Nbr de Patients</div>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>

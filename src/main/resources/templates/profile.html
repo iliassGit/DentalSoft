@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" th:href="@{/sidebar/index.css}">
+    <link rel="stylesheet" th:href="@{/profile/css/profile.css}">
+</head>
+<body>
+    <!--fixed sidebar and title-->
+    <header>
+        <h1 class="header-title">Dental Soft</h1>
+    </header>
+    <div class="sidebar">
+        <ul>
+            <li><a th:href="@{/profile}" style="background-color: white;color: #7B68EE;text-align: center;">Mon Profile</a></li>
+            <li><a th:href="@{/agenda}">Agenda</a></li>
+            <li><a th:href="@{/patients}">Patients</a></li>
+            <li><a th:href="@{/caisse}">Caisse</a></li>
+            <li><a th:href="@{/personnels}">Personnels</a></li>
+            <li><a th:href="@{/parametres}">Paramètres</a></li>
+        </ul>
+    </div>
+    <!--end fixed sidebar and title-->
+    <div class="profile-container">
+        <div class="profile-header">
+            <img src="profile/images/dentist-icon.jpg" alt="Profile Picture" class="profile-picture">
+            <div class="profile-info">
+                <h1>Dr. Hamid Chinwi</h1>
+                <p>Chirurgien Dentiste</p>
+            </div>
+            <button class="modifier-button" id="modifierButton">Modifier</button></li>
+            <button class="modifier-button" id="enregistrerButton" style="display:none;">Enregistrer</button>       
+        </div>
+        <div class="profile-details">
+            <h2>Addresse</h2>
+            <input class="profile-input" id="adresseInput" type="text" value="26, Souissi Rabat" readonly  style="color: #7B68EE;"><br><br>
+            <h2>N° Téléphone</h2>
+            <p class="inline-p">Pro : </p><input class="profile-input" id="teleProInput" type="text" value="+1 234-567-890" readonly  style="color: #7B68EE;"><br><br>
+            <p class="inline-p">Perso : </p><input class="profile-input" id="telePersoInput" type="text" value="+1 234-567-890" readonly  style="color: #7B68EE;"><br><br>
+            <h2>E-mail</h2>
+            <p class="inline-p" >Pro : </p><input class="profile-input" id="emailProInput" type="text" value="Dentiste.Chinwi@gmail.com" readonly  style="color: #7B68EE;"><br><br>
+            <p class="inline-p">Perso : </p><input class="profile-input" id="emailPersoInput" type="text" value="Hamid.Chinwi@gmail.com" readonly  style="color: #7B68EE;"><br><br>
+        </div>
+        <div class="profile-lists">
+            <ul>
+                <h3>Diplome</h3>
+                <li>List Item 1</li>
+                <li>List Item 2</li>
+                <li>List Item 3</li>
+            </ul>
+            <ul>
+                <h3>Certificats d'honneurs</h3>
+                <li>List Item 4</li>
+                <li>List Item 5</li>
+                <li>List Item 6</li>
+            </ul>
+            <ul>
+                <h3>Expériences Professionnelle</h3>
+                <li>List Item 7</li>
+                <li>List Item 8</li>
+                <li>List Item 9</li>
+            </ul>
+        </div>
+    </div>
+    <script src="profile/js/profile.js"></script>
+</body>
+</html>

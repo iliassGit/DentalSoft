@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Multi-Page Sidebar</title>
+<link rel="stylesheet" th:href="@{/sidebar/index.css}">
+</head>
+<body>
+    <header>
+        <h1 class="header-title">Dental Soft</h1>
+    </header>
+    
+<div class="sidebar">
+    <ul>
+        <li><a th:href="@{/profile}" >Mon Profile</a></li>
+        <li><a th:href="@{/agenda}">Agenda</a></li>
+        <li><a th:href="@{/patients}">Patients</a></li>
+        <li><a th:href="@{/caisse}">Caisse</a></li>
+        <li><a th:href="@{/personnels}">Personnels</a></li>
+        <li><a th:href="@{/parametres}">Paramètres</a></li>
+    </ul>
+</div>
+
+<div class="content" id="content">
+    <h1>Welcome to Page 1</h1>
+    <p>This is the content for Page 1.</p>
+</div>
+
+<script src="sidebar/index.js"></script>
+
+</body>
+</html>

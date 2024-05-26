@@ -1,0 +1,304 @@
+
+
+.patient-container {
+    width: 80%;
+    height: 750px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    margin-left: auto;
+    margin-right:80px;
+    margin-top: 10px;
+    position: relative;
+    
+}
+.table-container {
+    float: right;
+    width: 50%; /* Adjust width as needed */
+    /* Add some margin from the right edge */
+    margin-right: 20px;
+    margin-top: -200px;
+  }
+.h5 {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+}
+.profile-container {
+    display: flex;
+    align-items: center; /* Vertically align items */
+}
+
+.profile-picture {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    margin-right: 20px; /* Space between image and text */
+}
+.patient-info{
+    max-width: 500px;
+}
+
+.dents-image{
+    max-width: 500px;
+}
+.info-patients {
+    font-size: 20px;
+    font-weight: bold;
+    
+}
+
+.search-bar {
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 13px;
+    margin-left: auto;
+    margin-right:20px;
+}
+
+.search-button {
+    padding: 10px 15px;
+    background-color: #9194e8;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+    margin-right:20px;
+}
+
+.search-button:hover {
+    background-color: #91a4e8;
+}
+
+.patient-info p{
+    margin-left : 125px;
+}
+
+.dents-picture{
+    margin-left: 180px;
+    width: 300px;
+    height: 200px;
+}
+
+.notes-medecin{
+    margin-left:123px;
+    max-width: 500px;
+}
+
+.notes-medecin textarea{
+    width: 400px;
+    height: 150px;
+}
+
+table {
+    border-collapse: collapse; /* Ensures borders are not doubled */
+    background: white;
+    border-radius: 6px;
+    max-width: 900px;
+    width: 100%;
+    /* margin: 0 auto; */
+    /* margin-left: 23%; */
+    border: 1px solid #333; /* Border for the entire table */
+    
+}
+table * {
+    position: relative;
+}
+table td, table th {
+    padding-left: 8px;
+    border: 1px solid #333; 
+
+}
+table thead tr {
+    height: 60px;
+    background-color: #9194e8;
+    font-size: 16px;
+}
+table tbody tr {
+    height: 48px;
+    border-bottom: 1px solid #E3F1D5;
+}
+table tbody tr:last-child {
+    border: 0;
+}
+table td, table th {
+    text-align: center;
+}
+table td.l, table th.l {
+    text-align: right;
+}
+table td.c, table th.c {
+    text-align: center;
+}
+table td.r, table th.r {
+    text-align: center;
+}
+
+@media screen and (max-width: 35.5em) {
+    table {
+        display: block;
+    }
+    table > *, table tr, table td, table th {
+        display: block;
+    }
+    table thead {
+        display: none;
+    }
+    table tbody tr {
+        height: auto;
+        padding: 8px 0;
+    }
+    table tbody tr td {
+        padding-left: 45%;
+        margin-bottom: 12px;
+    }
+    table tbody tr td:last-child {
+        margin-bottom: 0;
+    }
+    table tbody tr td:before {
+        position: absolute;
+        font-weight: 700;
+        width: 40%;
+        left: 10px;
+        top: 0;
+    }
+    table tbody tr td:nth-child(1):before {
+        content: "Code";
+    }
+    table tbody tr td:nth-child(2):before {
+        content: "Stock";
+    }
+    table tbody tr td:nth-child(3):before {
+        content: "Cap";
+    }
+    table tbody tr td:nth-child(4):before {
+        content: "Inch";
+    }
+    table tbody tr td:nth-child(5):before {
+        content: "Box Type";
+    }
+}
+
+.form-consultation {
+    position: relative;
+    max-width: 800px;
+    float: right;
+    width: 50%; /* Adjust width as needed */
+    /* Add some margin from the right edge */
+    margin-right: 20px;
+    margin-top: 30px;
+}
+
+.form-row {
+    display: block;
+    position: relative;
+    height: 255px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    display: block;
+}
+
+.top-right {
+    position: absolute;
+    right: 0;
+}
+
+/* Position the first top-right element */
+#num_dent-group {
+    top: 0;
+}
+
+/* Position the second top-right element below the first */
+#prix_patient-group {
+    top: 47px; /* Adjust this value based on the height of the previous element */
+}
+
+#total-group{
+    top:94px;
+}
+
+
+.enregistrer-button, .supprimer-button {
+    padding: 10px 15px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.enregistrer-button {
+    background-color: #35c026;
+}
+
+.enregistrer-button:hover {
+    background-color: #6eda62;
+}
+
+.supprimer-button {
+    background-color: #ed1d1d;
+    padding: 10px 27px; /* Ensure consistent padding if needed */
+}
+
+.supprimer-button:hover {
+    background-color: #ed3d3d;
+}
+
+
+
+.input-form {
+    /* Adjust these values to your preference */
+    border: 2px solid #9194e8; /* Border color and width */
+    border-radius: 5px; /* Rounded corner radius */
+    padding: 5px 10px; /* Padding for spacing inside the input */
+    font-size: 16px; /* Font size for the input text */
+  }
+  
+.input-form:focus { /* Style for the input when focused */
+    border-color: #28a745; /* Change border color on focus */
+    outline: none; /* Remove default outline on focus */
+  }
+
+.previous-icon{
+    width:50px;
+    height: 50px;
+    margin-left:270px;
+    margin-top:10px;
+}
+.top-right label{
+    margin-right: 20px;
+}
+
+legend{
+    font-size:25px;
+}
+.situation-financiere {
+    margin-left:315px;
+    margin-top:-40px;
+}
+.situation-financiere img{
+    width: 70px;
+    height:70px;
+}
+.situation-financiere p{
+    display:inline;
+    font-size: 20px;
+    vertical-align:80%;
+}
+.buttons-box {
+    display: flex;
+    justify-content: flex-end; /* Align buttons to the right */
+    gap: 10px; /* Space between buttons */
+
+}
