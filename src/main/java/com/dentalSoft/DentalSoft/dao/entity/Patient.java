@@ -40,4 +40,5 @@ public class Patient{
     @JoinColumn(name = "dossier_medical_id", referencedColumnName = "numeroDossier")
     DossierMedicale dossierMedicale;
     String profession;
+
 }

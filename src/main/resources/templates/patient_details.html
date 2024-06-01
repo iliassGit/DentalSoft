@@ -24,24 +24,24 @@
         <li><a th:href="@{/parametres}">Paramètres</a></li>
     </ul>
 </div>
-<a href="patients.html"><img src="patient_detail/images/previous.png" alt="previous icon" class="previous-icon"></a>
+<a th:href="@{/patients}"><img th:src="@{/patient_detail/images/previous.png}" alt="previous icon" class="previous-icon"></a>
 <div class="patient-container">
     <div class="profile-container">
-        <img src="patient_detail/images/patient.png" alt="Profile Picture" class="profile-picture">
-        <h5 class="info-patients">Iliass boulaich / 21 ans / Homme</h5>
-        <a class="situation-financiere" href="situation_financiere.html"><img src="patient_detail/images/situation_financiere.png"><p> Situation Financière</p></a>
+        <img th:src="@{/patient_detail/images/patient.png}" alt="Profile Picture" class="profile-picture">
+        <h5 class="info-patients" th:text="${patientSelected.nom + ' ' + patientSelected.prenom + ' / ' + patientSelected.age + ' ans / ' + patientSelected.sexe}"></h5>
+        <a class="situation-financiere" th:href="@{/Situation_financiere}"><img th:src="@{/patient_detail/images/situation_financiere.png}"><p> Situation Financière</p></a>
         <input type="text" class="search-bar" placeholder="Search...">
         <button class="search-button">Search</button>
     </div>
     <div class="patient-info">
-        <p><i class="fa-solid fa-envelope"></i>  iliass@gmail.com</p>
-        <p><i class="fa-solid fa-phone"></i> +212689109273</p>
-        <p><i class="fa-solid fa-location-dot"></i>  Rue Al Manzah, Kenitra</p>
+        <p><i class="fa-solid fa-envelope"></i>  <span th:text="${patientSelected.email}"></span></p>
+        <p><i class="fa-solid fa-phone"></i><span th:text="${patientSelected.telephone}"></span> </p>
+        <p><i class="fa-solid fa-location-dot"></i>  <span th:text="${patientSelected.adresse}"></span></p>
         <p><i class="fa-solid fa-calendar-days"></i>  Ajouté le : 06-08-2024</p>
         <p><i class="fa-regular fa-address-card"></i> AZ99001</p>
     </div>
     <div class="dents-image">
-        <img src="patient_detail/images/dents.png" alt="image des dents" class="dents-picture">
+        <img th:src="@{/patient_detail/images/dents.png}" alt="image des dents" class="dents-picture">
     </div>
     <div class="notes-medecin">
         <p><i class="fa-regular fa-clipboard"></i> Notes Medecin : </p>
@@ -57,60 +57,35 @@
                 <th>Date</th>
                 <th>Actions</th>
             </tr>
-            <thead>
+            </thead>
             <tbody>
-            <tr>
-                <td>Soin de carie</td>
-                <td>19</td>
-                <td>500 DH</td>
-                <td>10/03/2024</td>
-                <td>
-                    <a><i class="fa-regular fa-pen-to-square"></i></a>
-                    <a><i class="fas fa-trash-alt"></i></a>
-                </td>
-            </tr>
-                <tr>
-                    <td>Detartrage</td>
-                    <td>Tout</td>
-                    <td>600 DH</td>
-                    <td>13/04/2024</td>
-                <td>
-                    <a><i class="fa-regular fa-pen-to-square"></i></a>
-                    <a><i class="fas fa-trash-alt"></i></a>
-                </td>
-            </tr>
-                <tr>
-                    <td>---------</td>
-                    <td>---------</td>
-                    <td>---------</td>
-                    <td>---------</td>
-                <td>
-                    ---------
-                </td>
-            </tr>
-            <tr>
-                <td>---------</td>
-                <td>---------</td>
-                <td>---------</td>
-                <td>---------</td>
-                <td>
-                    ---------
-                </td>
-            </tr>
-            <tr>
-                <td>---------</td>
-                <td>---------</td>
-                <td>---------</td>
-                <td>---------</td>
-                <td>
-                    ---------
-                </td>
-            </tr>
-            </tbody>
+            <tbody>
+        <tr th:each="acte, iterStat : ${listActe}">
+            <td th:text="${acte.categorie}"></td>
+            <td th:text="${listInterventions[iterStat.index].dent}"></td>
+            <td th:text="${acte.prixDeBase}"></td>
+            <td>
+                <ul>
+                    <li th:each="consultation, consultStat : ${consultations}"
+                        th:if="${consultStat.index == iterStat.index}"
+                        th:text="${consultation.dateConsultation}">
+                    </li>
+                </ul>
+            </td>
+            <td>
+                <a><i class="fa-regular fa-pen-to-square"></i></a>
+                <a><i class="fas fa-trash-alt"></i></a>
+            </td>
+        </tr>
+
+        </tbody>
+
         </table>
     </div>
+
     <div class="form-consultation">
-        <form>
+        <form action="/addActe"    method="POST">
+            <input type="hidden" th:name="patientId" th:value="${patientSelected.id}">
             <fieldset>
                 <legend>Formulaire Consultation</legend>
                 <div class="form-row"><br>
@@ -132,7 +107,7 @@
                     </div>
                     <div class="top-right" id="prix_patient-group"><br>
                         <label for="prix_patient">Prix Patient</label>
-                        <input type="number" id="prix_patient" class="input-form" name="prix_patient" required>
+                        <input type="number" id="prix_patient" class="input-form" name="prix_patient">
                     </div>
                     <div>
                         <button type="submit" class="enregitrer-button" id="button1">Enregistrer</button><br><br><br>
