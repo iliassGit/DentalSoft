@@ -55,7 +55,6 @@ public class PatientDetailsController {
                               @RequestParam("date") String date,
                               @RequestParam("num_dent") String numDent,
                               @RequestParam("prix_patient") Double prixPatient){
-        System.out.println("000000000000000000000000000000000000000000000");
         Acte acte = new Acte();
         //acte.setIdActe(acteService.findLastId().getIdActe() + 2);
         acte.setCategorie(CategorieActe.ORTHODONTIE);

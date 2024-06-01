@@ -14,6 +14,8 @@ public class ConsultationService {
     @Autowired
     ConsultationRepository consultationRepository;
 
+
+
     public List<Consultation> findConsultationByDossierMedicale(DossierMedicale dm){
         return consultationRepository.findByDossierMedicale(dm);
     }
@@ -25,5 +27,13 @@ public class ConsultationService {
 
     public void save(Consultation consultation) {
         consultationRepository.save(consultation);
+    }
+
+    public Consultation findByIdConsultation(Long consultationId) {
+        return consultationRepository.findByIdConsultation(consultationId);
+    }
+
+    public List<Consultation> findAll() {
+        return (List<Consultation>) consultationRepository.findAll();
     }
 }

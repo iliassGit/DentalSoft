@@ -9,5 +9,7 @@ import java.util.List;
 
 @Repository
 public interface ConsultationRepository extends CrudRepository<Consultation, Long> {
-    public List<Consultation> findByDossierMedicale(DossierMedicale dm);
+    List<Consultation> findByDossierMedicale(DossierMedicale dm);
+
+    Consultation findByIdConsultation(Long consultationId);
 }

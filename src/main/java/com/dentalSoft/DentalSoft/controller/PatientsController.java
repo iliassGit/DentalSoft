@@ -36,9 +36,9 @@ public class PatientsController {
         patientService.savePatient(patient1);
         return  "redirect:/patients";
     }
-    @GetMapping("/deletePatient")
-    public String deletePatient(@ModelAttribute  Patient patient, Model model){
-        patientService.deletePatientById((long) patient.getId());
+    @GetMapping("/deletePatient/{id}")
+    public String deletePatient(@PathVariable  Long id, Model model){
+        patientService.deletePatientById(id);
         return  "redirect:/patients";
     }
 

@@ -29,7 +29,7 @@
     <div class="profile-container">
         <img th:src="@{/patient_detail/images/patient.png}" alt="Profile Picture" class="profile-picture">
         <h5 class="info-patients" th:text="${patientSelected.nom + ' ' + patientSelected.prenom + ' / ' + patientSelected.age + ' ans / ' + patientSelected.sexe}"></h5>
-        <a class="situation-financiere" th:href="@{/Situation_financiere}"><img th:src="@{/patient_detail/images/situation_financiere.png}"><p> Situation Financière</p></a>
+        <a class="situation-financiere" th:href="@{/Situation_financiere/{id}(id=${patientSelected.id})}"><img th:src="@{/patient_detail/images/situation_financiere.png}"><p> Situation Financière</p></a>
         <input type="text" class="search-bar" placeholder="Search...">
         <button class="search-button">Search</button>
     </div>
@@ -59,24 +59,23 @@
             </tr>
             </thead>
             <tbody>
-            <tbody>
-        <tr th:each="acte, iterStat : ${listActe}">
-            <td th:text="${acte.categorie}"></td>
-            <td th:text="${listInterventions[iterStat.index].dent}"></td>
-            <td th:text="${acte.prixDeBase}"></td>
-            <td>
-                <ul>
-                    <li th:each="consultation, consultStat : ${consultations}"
-                        th:if="${consultStat.index == iterStat.index}"
-                        th:text="${consultation.dateConsultation}">
-                    </li>
-                </ul>
-            </td>
-            <td>
-                <a><i class="fa-regular fa-pen-to-square"></i></a>
-                <a><i class="fas fa-trash-alt"></i></a>
-            </td>
-        </tr>
+                <tr th:each="acte, iterStat : ${listActe}">
+                    <td th:text="${acte.categorie}"></td>
+                    <td th:text="${listInterventions[iterStat.index].dent}"></td>
+                    <td th:text="${acte.prixDeBase}"></td>
+                    <td>
+                        <ul>
+                            <li th:each="consultation, consultStat : ${consultations}"
+                                th:if="${consultStat.index == iterStat.index}"
+                                th:text="${consultation.dateConsultation}">
+                            </li>
+                        </ul>
+                    </td>
+                    <td>
+                        <a><i class="fa-regular fa-pen-to-square"></i></a>
+                        <a><i class="fas fa-trash-alt"></i></a>
+                    </td>
+                </tr>
 
         </tbody>
 
@@ -112,7 +111,6 @@
                     <div>
                         <button type="submit" class="enregitrer-button" id="button1">Enregistrer</button><br><br><br>
                         <button type="button" class="supprimer-button" id="button2">Effacer</button>
-                
                     </div>
                 </div>
             </fieldset>

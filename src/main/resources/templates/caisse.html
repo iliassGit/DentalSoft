@@ -32,64 +32,31 @@
         <input type="text" class="search-bar" placeholder="Search...">
         <button class="search-button">Search</button>
     </div>
-        <table>
-            <thead>
-            <tr>
-                <th>N° Facture</th>
-                <th>Date</th>
-                <th>Nom Complet du Patient</th>
-                <th>N° Consultation</th>
-                <th>Montant</th>
-                <th>Actions</th>
-            </tr>
-            <thead>
-            <tbody>
-            <tr>
-                <td>CES-9000</td>
-                <td>10/03/2024</td>
-                <td>Iliass Boulaich</td>
-                <td>200938</td>
-                <td>2000 DH</td>
-                <td>
-                    <a><i class="fa-solid fa-print"></i></a>
-                    <a><i class="fas fa-trash-alt"></i></a>
-                </td>
-            </tr>
-                <tr>
-                <td>CES-9000</td>
-                <td>14/03/2024</td>
-                <td>Ayoub Sabbar</td>
-                <td>200939</td>
-                <td>1000 DH</td>
-                <td>
-                    <a><i class="fa-solid fa-print"></i></a>
-                    <a><i class="fas fa-trash-alt"></i></a>
-                </td>
-            </tr>
-                <tr>
-                <td>CES-9000</td>
-                <td>20/03/2024</td>
-                <td>Ahmed Lhiba</td>
-                <td>378938</td>
-                <td>200 DH</td>
-                <td>
-                    <a><i class="fa-solid fa-print"></i></a>
-                    <a><i class="fas fa-trash-alt"></i></a>
-                </td>
-            </tr>
-                <tr>
-                <td>CES-9000</td>
-                <td>25/03/2024</td>
-                <td>Khalid Mimouni</td>
-                <td>200935</td>
-                <td>800 DH</td>
-                <td>
-                    <a><i class="fa-solid fa-print"></i></a>
-                    <a><i class="fas fa-trash-alt"></i></a>
-                </td>
-            </tr>
-            </tbody>
-        </table>
+    <table>
+        <thead>
+        <tr>
+            <th>N° Facture</th>
+            <th>Date</th>
+            <th>Nom Complet du Patient</th>
+            <th>N° Consultation</th>
+            <th>Montant</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="facture, iterStat : ${allFactures}">
+            <td th:text="${facture.idFacture}"></td>
+            <td th:text="${facture.dateFacturation}"></td>
+            <td th:text="${allPatients[iterStat.index].nom + ' ' + allPatients[iterStat.index].prenom}"></td>
+            <td th:text="${facture.consultation.idConsultation}"></td>
+            <td th:text="${facture.montantTotal}"></td>
+            <td>
+                <a><i class="fa-solid fa-print"></i></a>
+                <a><i class="fas fa-trash-alt"></i></a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
         <div class="box-div">
             <div class="box-container">
                 <div class="box">
