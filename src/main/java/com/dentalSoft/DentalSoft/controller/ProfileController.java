@@ -20,9 +20,15 @@ public class ProfileController {
         return "profile";
     }
     @ModelAttribute("dentiste")
-    public Dentiste getDentiste( Model model) {
-        Long idDentiste = 1L;
-        session.setAttribute("idDentiste", idDentiste   );
+    public Dentiste getDentiste(Model model) {
+        Object idDentisteObj = session.getAttribute("idDentiste");
+        Long idDentiste = null;
+
+        if (idDentisteObj instanceof Integer) {
+            idDentiste = ((Integer) idDentisteObj).longValue();
+        } else if (idDentisteObj instanceof Long) {
+            idDentiste = (Long) idDentisteObj;
+        }
         return dentisteService.getDentisteById(idDentiste);
     }
     @PostMapping("/profile")
@@ -32,15 +38,25 @@ public class ProfileController {
     }
 
     @PostMapping("/updateDentiste")
-    public String updateDentiste(Model model){
-        Object dentisteId = session.getAttribute("idDentiste");
-        Dentiste existingdentiste = dentisteService.getDentisteById((long) dentisteId);
-        existingdentiste.setAdresse(existingdentiste.getAdresse());
-        existingdentiste.setEmail(existingdentiste.getEmail());
-        existingdentiste.setTelephone(existingdentiste.getTelephone());
-        model.addAttribute("dentiste", existingdentiste);
-        dentisteService.saveDentiste(existingdentiste);
-        return "redirect:/profile?id=" + existingdentiste.getId();
+    public String updateDentiste(@RequestParam String adresse,
+                                 @RequestParam String telephone,
+                                 @RequestParam String email,
+                                 Model model){
+        Object idDentisteObj = session.getAttribute("idDentiste");
+        Long idDentiste = null;
+
+        if (idDentisteObj instanceof Integer) {
+            idDentiste = ((Integer) idDentisteObj).longValue();
+        } else if (idDentisteObj instanceof Long) {
+            idDentiste = (Long) idDentisteObj;
+        }
+        Dentiste updatedDentiste = dentisteService.getDentisteById((Long)idDentiste);
+        updatedDentiste.setAdresse(adresse);
+        updatedDentiste.setEmail(email);
+        updatedDentiste.setTelephone(telephone);
+        model.addAttribute("dentiste", updatedDentiste);
+        dentisteService.saveDentiste(updatedDentiste);
+        return "redirect:/profile?id=" + updatedDentiste.getId();
     }
 
 }
