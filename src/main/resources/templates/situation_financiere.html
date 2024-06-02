@@ -22,6 +22,8 @@
         <li><a th:href="@{/caisse}">Caisse</a></li>
         <li><a th:href="@{/personnels}">Personnels</a></li>
         <li><a th:href="@{/parametres}">Paramètres</a></li>
+        <li id="logout"><a th:href="@{/logout}">Logout</a></li>
+
     </ul>
 </div>
 <a th:href="@{/patient_details/{id}(id=${patient.id})}"><img th:src="@{/patient_detail/images/previous.png}" alt="previous icon" class="previous-icon"></a>

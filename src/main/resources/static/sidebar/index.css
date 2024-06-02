@@ -15,6 +15,7 @@ body {
 .sidebar ul {
     list-style-type: none;
     padding: 0;
+    flex-grow: 1; /* This allows the ul to grow and take up space */
 }
 
 .sidebar ul li {
@@ -53,4 +54,9 @@ header {
 
 .header-title {
     margin: 0;
+}
+
+#logout {
+    margin-top: auto; 
+    background-color: aliceblue;
 }
